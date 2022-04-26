@@ -60,26 +60,26 @@ namespace TechJobsConsole
 
         // In the JobData class, create a new public static method
         // that will search for a string within each of the columns.
-        /* Name it FindByValue. 
-        public static List<string> FindByValue(string values)
+        // Name it FindByValue. 
+        public static List<Dictionary<string, string>> FindByValue(string searchTerm)
         {
             // load data, if not already loaded
             LoadData();
-            List<string> jobs = new List<string>();
+            List<Dictionary<string, string>> jobs = new List<Dictionary<string, string>>();
 
             foreach (Dictionary<string, string> item in AllJobs)
             {
                 foreach (KeyValuePair<string, string> pair in item)
                 {
-                    string aValue = "";
+                    string aValue = pair.Value.ToLower();
 
-                    if (!values.Contains(aValue))
+                    if (aValue.Contains(searchTerm.ToLower()))
                     {
-                        values.Add(aValue);
+                        jobs.Add(item);
                     }
-                }
-                return values;
+                }  
             }
+            return jobs;
         }
 
         
