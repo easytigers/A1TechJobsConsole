@@ -47,9 +47,9 @@ namespace TechJobsConsole
 
             foreach (Dictionary<string, string> row in AllJobs)
             {
-                string aValue = row[column];
+                string aValue = row[column].ToLower();
 
-                if (aValue.Contains(value))
+                if (aValue.Contains(value.ToLower()))
                 {
                     jobs.Add(row);
                 }
@@ -57,6 +57,32 @@ namespace TechJobsConsole
 
             return jobs;
         }
+
+        // In the JobData class, create a new public static method
+        // that will search for a string within each of the columns.
+        /* Name it FindByValue. 
+        public static List<string> FindByValue(string values)
+        {
+            // load data, if not already loaded
+            LoadData();
+            List<string> jobs = new List<string>();
+
+            foreach (Dictionary<string, string> item in AllJobs)
+            {
+                foreach (KeyValuePair<string, string> pair in item)
+                {
+                    string aValue = "";
+
+                    if (!values.Contains(aValue))
+                    {
+                        values.Add(aValue);
+                    }
+                }
+                return values;
+            }
+        }
+
+        
 
         /*
          * Load and parse data from job_data.csv
