@@ -76,6 +76,7 @@ namespace TechJobsConsole
                     if (aValue.Contains(searchTerm.ToLower()))
                     {
                         jobs.Add(item);
+                        break;
                     }
                 }  
             }
